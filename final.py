@@ -121,9 +121,10 @@ if test_data:
     colu_1.write("Click on The Button If You want to test another Example")
     button=colu_2.button('\n\nResample Again\t\t\t\t\t\n')
 
-    while button:
+    if button:
         st.empty()
         predict_sample(model_tokenizer,button)
+        
 else:
     st.subheader("Generating Report On Uploaded X-Rays")
     predict(image_1,image_2,model_tokenizer,predict_button=predict_button)
