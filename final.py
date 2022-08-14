@@ -23,12 +23,16 @@ footer {visibility: hidden;}
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
 with st.sidebar:
-    paragraph="""\nThis app will generate impression part of an X-ray report.
+    st.title("Chest X-ray Report Generator")
+    
+    with st.container():
+        paragraph="""\nThis app will generate impression part of an X-ray report.
                 \nYou can upload 2 X-rays that are front view and side view of chest of the same individual."""
-    text_area = st.empty()
-    st.write(text_area.text_area(st.markdown(" ### **Impression:**"), paragraph))
+        text_area = st.empty()
+        text=text_area.text_area("", paragraph)
+        st.write(text)
 
-st.title("Chest X-ray Report Generator")
+
 
 
 
