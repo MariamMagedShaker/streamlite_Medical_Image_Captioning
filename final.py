@@ -113,7 +113,7 @@ if test_data:
     button=False
     colu_1,colu_2=st.columns(2)
     colu_1.write("Click on The Button If You want to test another Example")
-    button=colu_2.button('\nResample Again\t\t\t\t\t\n')
+    button=colu_2.button('\n\nResample Again\t\t\t\t\t\n')
 
     while button:
         predict_sample(model_tokenizer,button)
