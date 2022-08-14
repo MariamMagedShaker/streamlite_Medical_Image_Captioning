@@ -76,7 +76,7 @@ def predict(image_1,image_2,model_tokenizer,predict_button = None):
             caption = cm.function1([image_1],[image_2],model_tokenizer)
             if caption:
                 with col_3:
-                    text_area=st.empty()
+                    text_area=col_3.empty()
                     text = text_area.text_area("__","\n\n\nGenerated Report:\n\n"+ caption[0],height=300)
 
 
@@ -113,7 +113,7 @@ if test_data:
     st.subheader("Generating Report On Test Data")
     button=True
     predict_sample(model_tokenizer,button)
-    
+
     colu_1,colu_2=st.columns(2)
     colu_1.write("Click on The Button If You want to test another Example")
     button=colu_2.button('\n\nResample Again\t\t\t\t\t\n')
