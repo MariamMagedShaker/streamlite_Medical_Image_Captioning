@@ -31,6 +31,8 @@ with st.sidebar:
         
         text_area = st.empty()
         text=text_area.text_area("", paragraph, height=230)
+    choices=['Predict on uploaded files','Predict on sample data']
+    st.selectbox("activities",choices)
     
 
 
@@ -39,11 +41,11 @@ with st.sidebar:
 col1,col2 = st.columns(2)
 col1.subheader("X-ray 1")
 
-image_1 = col1.file_uploader("",type=['png','jpg','jpeg'])
+image_1 = col1.file_uploader("X1",type=['png','jpg','jpeg'])
 image_2 = None
 if image_1:
-    col2.header("X-ray 2 (optional)")
-    image_2 = col2.file_uploader("op",type=['png','jpg','jpeg'])
+    col2.subheader("X-ray 2 (optional)")
+    image_2 = col2.file_uploader("X2",type=['png','jpg','jpeg'])
 
 col1,col2 = st.columns(2)
 predict_button = col1.button('Predict on uploaded files')
@@ -75,9 +77,6 @@ def predict(image_1,image_2,model_tokenizer,predict_button = predict_button):
                 text_area = st.empty()
                 text = text_area.text_area(st.markdown(" ### **Impression:**"), caption[0])
 
-
-            
-            
             impression = st.empty()
             impression.write(text)
             time_taken = "Time Taken for prediction: %i seconds"%(time.process_time()-start)
@@ -98,11 +97,12 @@ def predict_sample(model_tokenizer,folder = './test_images'):
         image_1 = os.path.join(file_path,os.listdir(file_path)[0])
         image_2 = image_1
     predict(image_1,image_2,model_tokenizer,True)
-    
+
+
+
+
 
 model_tokenizer = create_model()
-
-
 
 if test_data:
     predict_sample(model_tokenizer)
