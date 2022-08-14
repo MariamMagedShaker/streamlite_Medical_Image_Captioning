@@ -8,10 +8,8 @@ import create_model as cm
 
 st.title("Chest X-ray Report Generator")
 
-st.markdown("<small>by Ashish</small>",unsafe_allow_html=True)
-st.markdown("[<small>Github</small>](https://github.com/ashishthomaschempolil/Medical-Image-Captioning-on-Chest-X-rays)          [<small>Towards Data Science</small>](https://towardsdatascience.com/medical-image-captioning-on-chest-x-rays-a43561a6871d)",
-unsafe_allow_html=True)
 st.markdown("\nThis app will generate impression part of an X-ray report.\nYou can upload 2 X-rays that are front view and side view of chest of the same individual.")
+
 st.markdown("The 2nd X-ray is optional.")
 
 
@@ -31,7 +29,9 @@ def create_model():
     return model_tokenizer
 
 
+
 def predict(image_1,image_2,model_tokenizer,predict_button = predict_button):
+    caption=None
     start = time.process_time()
     if predict_button:
         if (image_1 is not None):
@@ -45,9 +45,15 @@ def predict(image_1,image_2,model_tokenizer,predict_button = predict_button):
                 image_2 = np.array(image_2)/255
             st.image([image_1,image_2],width=300)
             caption = cm.function1([image_1],[image_2],model_tokenizer)
+            if caption:
+                text_area = st.empty()
+                text = text_area.text_area("Text to analyze", caption[0])
+
+
+            
             st.markdown(" ### **Impression:**")
             impression = st.empty()
-            impression.write(caption[0])
+            impression.write(text)
             time_taken = "Time Taken for prediction: %i seconds"%(time.process_time()-start)
             st.write(time_taken)
             del image_1,image_2
