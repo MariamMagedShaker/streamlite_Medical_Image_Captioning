@@ -116,6 +116,7 @@ if test_data:
     button=colu_2.button('\n\nResample Again\t\t\t\t\t\n')
 
     while button:
+        st.empty()
         predict_sample(model_tokenizer,button)
 else:
     st.subheader("Generating Report On Uploaded X-Rays")
