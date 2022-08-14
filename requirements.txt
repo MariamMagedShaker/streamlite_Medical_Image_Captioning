@@ -4,6 +4,5 @@ nltk
 pandas
 tensorflow
 joblib
-pickle
 streamlit
 Pillow
