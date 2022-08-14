@@ -70,7 +70,7 @@ def predict(image_1,image_2,model_tokenizer,predict_button = None):
             caption = cm.function1([image_1],[image_2],model_tokenizer)
             if caption:
                 text_area=st.empty()
-                text = text_area.text_area(st.markdown(" ### **Impression:**"), caption[0])
+                text = text_area.text_area("","Generated Rebort: "+ caption[0])
 
             impression = st.empty()
             impression.write(text)
