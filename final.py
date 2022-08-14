@@ -69,7 +69,7 @@ def predict(image_1,image_2,model_tokenizer,predict_button = None):
             caption = cm.function1([image_1],[image_2],model_tokenizer)
             if caption:
                 text_area=st.empty()
-                text = text_area.text_area("","Generated Rebort:\n"+ caption[0])
+                text = text_area.text_area("","Generated Report:\n"+ caption[0])
 
             time_taken = "Time Taken for prediction: %i seconds"%(time.process_time()-start)
             st.subheader(time_taken)
@@ -98,8 +98,10 @@ def predict_sample(model_tokenizer,folder = './test_images'):
 model_tokenizer = create_model()
 
 if test_data:
+    st.subheader("Generating Report On Test Data")
     predict_sample(model_tokenizer)
 else:
+    st.subheader("Generating Report On Uploaded X-Rays")
     predict(image_1,image_2,model_tokenizer,predict_button=predict_button)
 
 
