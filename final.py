@@ -67,10 +67,10 @@ def predict(image_1,image_2,model_tokenizer,predict_button = None):
             else:
                 image_2 = Image.open(image_2).convert("RGB") #converting to 3 channels
                 image_2 = np.array(image_2)/255
-            with col_1:
-                c_imag1,c_imag2=st.columns(2)
-                c_imag1.write("home")
-                c_imag2.write("klo")
+
+            c_imag1,c_imag2=col_1.columns(2)
+            c_imag1.write("home")
+            c_imag2.write("klo")
                 # c_imag1.image(image_1)
                 # c_imag2.image(image_2)
             #col_1.image([image_1,image_2],width=250)
