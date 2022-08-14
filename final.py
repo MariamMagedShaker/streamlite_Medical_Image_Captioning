@@ -53,6 +53,8 @@ elif choice =="sample_data":
     test_data=True
 
 def predict(image_1,image_2,model_tokenizer,predict_button = None):
+    col_1,col_2=st.columns(2)
+
     caption=None
     start = time.process_time()
     if predict_button:
@@ -65,16 +67,16 @@ def predict(image_1,image_2,model_tokenizer,predict_button = None):
             else:
                 image_2 = Image.open(image_2).convert("RGB") #converting to 3 channels
                 image_2 = np.array(image_2)/255
-            st.image([image_1,image_2],width=300)
+            col_1.image([image_1,image_2],width=250,height=250)
             caption = cm.function1([image_1],[image_2],model_tokenizer)
             if caption:
-                text_area=st.empty()
-                text = text_area.text_area("","Generated Report:\n"+ caption[0])
+                col2.text_area("","Generated Report:\n"+ caption[0])
 
             time_taken = "Time Taken for prediction: %i seconds"%(time.process_time()-start)
             st.subheader(time_taken)
 
             del image_1,image_2
+    
         else:
             st.markdown("## Upload an Image")
 
