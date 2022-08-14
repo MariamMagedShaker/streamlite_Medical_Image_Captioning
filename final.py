@@ -81,7 +81,7 @@ def predict(image_1,image_2,model_tokenizer,predict_button = None):
                     text = col_3.text_area("","\n\n\nGenerated Report:\n\n"+ caption[0],height=300)
             time_taken = "Time Taken for prediction: %i seconds"%(time.process_time()-start)
             
-            # placeholder.subheader(time_taken)
+            placeholder.subheader(time_taken)
 
             del image_1,image_2
     
