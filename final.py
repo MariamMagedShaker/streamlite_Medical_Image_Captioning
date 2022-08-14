@@ -67,12 +67,16 @@ def predict(image_1,image_2,model_tokenizer,predict_button = None):
             else:
                 image_2 = Image.open(image_2).convert("RGB") #converting to 3 channels
                 image_2 = np.array(image_2)/255
-            col_1.image([image_1,image_2],width=250)
+            with col_1:
+                c_imag1,c_imag2=st.columns(2)
+                c_imag1.image(image_1,use_column_width=True)
+                c_imag2.image(image_2,use_column_width=True))
+            #col_1.image([image_1,image_2],width=250)
             caption = cm.function1([image_1],[image_2],model_tokenizer)
             if caption:
                 with col_2:
                     text_area=st.empty()
-                    text = text_area.text_area("","Generated Report:\n"+ caption[0])
+                    text = text_area.text_area("","\n\n\nGenerated Report:\n\n"+ caption[0],height=300)
 
 
             time_taken = "Time Taken for prediction: %i seconds"%(time.process_time()-start)
