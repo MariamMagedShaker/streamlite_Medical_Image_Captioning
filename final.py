@@ -74,15 +74,14 @@ def predict(image_1,image_2,model_tokenizer,predict_button = None):
             col_2.image(image_2)
   
             caption = cm.function1([image_1],[image_2],model_tokenizer)
+            # col_3.write(caption[0])
             if caption:
                 with col_3:
-                    #text_area=col_3.empty()
+                    text_area=st.empty()
                     text = col_3.text_area("__","\n\n\nGenerated Report:\n\n"+ caption[0],height=300)
-
-
             time_taken = "Time Taken for prediction: %i seconds"%(time.process_time()-start)
             
-            placeholder.subheader(time_taken)
+            # placeholder.subheader(time_taken)
 
             del image_1,image_2
     
@@ -114,9 +113,9 @@ if test_data:
     button=True
     predict_sample(model_tokenizer,button)
 
-    colu_1,colu_2=st.columns(2)
-    colu_1.write("Click on The Button If You want to test another Example")
-    button=colu_2.button('\n\nResample Again\t\t\t\t\t\n')
+    # colu_1,colu_2=st.columns(2)
+    # colu_1.write("Click on The Button If You want to test another Example")
+    # button=colu_2.button('\n\nResample Again\t\t\t\t\t\n')
         
 else:
     st.subheader("Generating Report On Uploaded X-Rays")
