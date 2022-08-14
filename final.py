@@ -35,6 +35,7 @@ with st.sidebar:
     choices=['uploaded_files','sample_data']
     choice=st.selectbox("Select Activity to Predict on: ",choices)
 
+
 test_data=None
 if choice =="uploaded_files":
     col1,col2 = st.columns(2)
@@ -100,7 +101,7 @@ model_tokenizer = create_model()
 if test_data:
     predict_sample(model_tokenizer)
 else:
-    predict(image_1,image_2,model_tokenizer)
+    predict(image_1,image_2,model_tokenizer,predict_button=predict_button)
 
 
 
