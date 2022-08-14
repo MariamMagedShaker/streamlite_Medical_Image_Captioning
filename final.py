@@ -14,35 +14,34 @@ st.set_page_config(layout="wide", page_title="Chest X-ray Report Generator", pag
 
 
 
-hide_streamlit_style = """
-<style>
-#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-</style>
-"""
-st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+# # hide_streamlit_style = """
+# # <style>
+# # #MainMenu {visibility: hidden;}
+# # footer {visibility: hidden;}
+# # </style>
+# # """
+# st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
 with st.sidebar:
     st.title("Chest X-ray Report Generator")
     
     with st.container():
-        paragraph="""This app will generate impression part of an X-ray report.
-                \nYou can upload 2 X-rays that are front view and side view of chest of the same individual."""
+        paragraph="""\nThis app will generate impression part of an X-ray report.
+                \nYou can upload 2 X-rays that are front view and side view of chest of the same individual.
+                Note: The 2nd X-ray is optional."""
+        
         text_area = st.empty()
-        text=text_area.text_area("", paragraph,height=170)
+        text=text_area.text_area("", paragraph, height=200)
+    
 
 
-
-
-
-st.markdown("The 2nd X-ray is optional.")
 
 
 col1,col2 = st.columns(2)
-image_1 = col1.file_uploader("X-ray 1",type=['png','jpg','jpeg'])
+image_1 = col1.file_uploader(st.header("X-ray 1"),type=['png','jpg','jpeg'])
 image_2 = None
 if image_1:
-    image_2 = col2.file_uploader("X-ray 2 (optional)",type=['png','jpg','jpeg'])
+    image_2 = col2.file_uploader(st.subheader("X-ray 2 (optional)"),type=['png','jpg','jpeg'])
 
 col1,col2 = st.columns(2)
 predict_button = col1.button('Predict on uploaded files')
