@@ -52,7 +52,7 @@ if choice =="uploaded_files":
 elif choice =="sample_data":
     test_data=True
 
-def predict(image_1,image_2,model_tokenizer,predict_button = predict_button):
+def predict(image_1,image_2,model_tokenizer,predict_button = None):
     caption=None
     start = time.process_time()
     if predict_button:
