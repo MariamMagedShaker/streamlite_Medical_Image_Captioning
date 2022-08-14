@@ -29,7 +29,7 @@ with st.sidebar:
         paragraph="""This app will generate impression part of an X-ray report.
                 \nYou can upload 2 X-rays that are front view and side view of chest of the same individual."""
         text_area = st.empty()
-        text=text_area.text_area("", paragraph,height=300 px)
+        text=text_area.text_area("", paragraph,height=300)
 
 
 
