@@ -53,7 +53,7 @@ elif choice =="sample_data":
     test_data=True
 
 def predict(image_1,image_2,model_tokenizer,predict_button = None):
-    col_1,col_2=st.columns(2)
+    col_1,col_2,col_3=st.columns(3)
 
     caption=None
     start = time.process_time()
@@ -68,15 +68,15 @@ def predict(image_1,image_2,model_tokenizer,predict_button = None):
                 image_2 = Image.open(image_2).convert("RGB") #converting to 3 channels
                 image_2 = np.array(image_2)/255
 
-            c_imag1,c_imag2=col_1.columns(2)
-            c_imag1.write("home")
-            c_imag2.write("klo")
+            #c_imag1,c_imag2=col_1.columns(2)
+            col_1.write("home")
+            col_2.write("klo")
                 # c_imag1.image(image_1)
                 # c_imag2.image(image_2)
             #col_1.image([image_1,image_2],width=250)
             caption = cm.function1([image_1],[image_2],model_tokenizer)
             if caption:
-                with col_2:
+                with col_3:
                     text_area=st.empty()
                     text = text_area.text_area("","\n\n\nGenerated Report:\n\n"+ caption[0],height=300)
 
