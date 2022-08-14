@@ -49,12 +49,8 @@ if choice =="uploaded_files":
     col1,col2 = st.columns(2)
     predict_button = col1.button('Predict on uploaded files')
 
-else:
-    test_data = True
-
-
-
-
+elif choice =="sample_data":
+    test_data=True
 
 def predict(image_1,image_2,model_tokenizer,predict_button = predict_button):
     caption=None
