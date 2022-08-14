@@ -43,9 +43,8 @@ if choice =="uploaded_files":
 
     image_1 = col1.file_uploader("X1",type=['png','jpg','jpeg'])
     image_2 = None
-    if image_1:
-        col2.subheader("X-ray 2 (optional)")
-        image_2 = col2.file_uploader("X2",type=['png','jpg','jpeg'])
+    col2.subheader("X-ray 2 (optional)")
+    image_2 = col2.file_uploader("X2",type=['png','jpg','jpeg'])
 
     col1,col2 = st.columns(2)
     predict_button = col1.button('Predict on uploaded files')
