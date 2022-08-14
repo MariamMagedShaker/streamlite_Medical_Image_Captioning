@@ -53,8 +53,13 @@ elif choice =="sample_data":
     test_data=True
 
 def predict(image_1,image_2,model_tokenizer,predict_button = None):
+    st.empty()
     col_1,col_2,col_3=st.columns(3)
-
+    
+    col_1.empty()
+    col_2.empty()
+    col_3.empty()
+    
     caption=None
     start = time.process_time()
     if predict_button:
@@ -75,10 +80,11 @@ def predict(image_1,image_2,model_tokenizer,predict_button = None):
             if caption:
                 with col_3:
                     text_area=st.empty()
-                    text = text_area.text_area("","\n\n\nGenerated Report:\n\n"+ caption[0],height=300)
+                    text = text_area.text_area("__","\n\n\nGenerated Report:\n\n"+ caption[0],height=300)
 
 
             time_taken = "Time Taken for prediction: %i seconds"%(time.process_time()-start)
+            
             st.subheader(time_taken)
 
             del image_1,image_2
