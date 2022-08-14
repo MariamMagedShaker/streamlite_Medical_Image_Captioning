@@ -38,7 +38,8 @@ with st.sidebar:
 
 
 col1,col2 = st.columns(2)
-st.header("X-ray 1")
+col1.subheader("X-ray 1")
+
 image_1 = col1.file_uploader("",type=['png','jpg','jpeg'])
 image_2 = None
 if image_1:
