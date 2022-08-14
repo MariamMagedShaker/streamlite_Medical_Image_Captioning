@@ -113,9 +113,9 @@ if test_data:
     button=True
     predict_sample(model_tokenizer,button)
 
-    # colu_1,colu_2=st.columns(2)
-    # colu_1.write("Click on The Button If You want to test another Example")
-    # button=colu_2.button('\n\nResample Again\t\t\t\t\t\n')
+    colu_1,colu_2=st.columns(2)
+    colu_1.write("Click on The Button If You want to test another Example")
+    button=colu_2.button('\n\nResample Again\t\t\t\t\t\n')
         
 else:
     st.subheader("Generating Report On Uploaded X-Rays")
