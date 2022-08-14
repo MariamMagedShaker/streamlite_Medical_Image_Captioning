@@ -7,12 +7,13 @@ import create_model as cm
 
 
 
-st.session_state["warned_about_save_answers"] = True
-
-
+#st.session_state["warned_about_save_answers"] = True
 st.set_page_config(layout="wide", page_title="Chest X-ray Report Generator", page_icon="")
 
-
+@st.cache(allow_output_mutation=True)
+def create_model():
+    model_tokenizer = cm.create_model()
+    return model_tokenizer
 
 # # hide_streamlit_style = """
 # # <style>
@@ -31,30 +32,27 @@ with st.sidebar:
         
         text_area = st.empty()
         text=text_area.text_area("", paragraph, height=230)
-    choices=['Predict on uploaded files','Predict on sample data']
-    st.selectbox("activities",choices)
-    
+    choices=['uploaded_files','sample_data']
+    choice=st.selectbox("Select Activity to Predict on: ",choices)
 
 
+if choice =="uploaded_files":
+    col1,col2 = st.columns(2)
+    col1.subheader("X-ray 1")
+
+    image_1 = col1.file_uploader("X1",type=['png','jpg','jpeg'])
+    image_2 = None
+    if image_1:
+        col2.subheader("X-ray 2 (optional)")
+        image_2 = col2.file_uploader("X2",type=['png','jpg','jpeg'])
+
+    col1,col2 = st.columns(2)
+    predict_button = col1.button('Predict on uploaded files')
+
+else:
+    test_data = True
 
 
-col1,col2 = st.columns(2)
-col1.subheader("X-ray 1")
-
-image_1 = col1.file_uploader("X1",type=['png','jpg','jpeg'])
-image_2 = None
-if image_1:
-    col2.subheader("X-ray 2 (optional)")
-    image_2 = col2.file_uploader("X2",type=['png','jpg','jpeg'])
-
-col1,col2 = st.columns(2)
-predict_button = col1.button('Predict on uploaded files')
-test_data = col2.button('Predict on sample data')
-
-@st.cache(allow_output_mutation=True)
-def create_model():
-    model_tokenizer = cm.create_model()
-    return model_tokenizer
 
 
 
