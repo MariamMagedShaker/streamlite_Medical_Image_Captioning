@@ -78,7 +78,7 @@ def predict(image_1,image_2,model_tokenizer,predict_button = None):
             if caption:
                 with col_3:
                     text_area=st.empty()
-                    text = col_3.text_area("__","\n\n\nGenerated Report:\n\n"+ caption[0],height=300)
+                    text = col_3.text_area("","\n\n\nGenerated Report:\n\n"+ caption[0],height=300)
             time_taken = "Time Taken for prediction: %i seconds"%(time.process_time()-start)
             
             # placeholder.subheader(time_taken)
