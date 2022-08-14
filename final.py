@@ -27,8 +27,7 @@ with st.sidebar:
     
     with st.container():
         paragraph="""\nThis app will generate impression part of an X-ray report.
-                \nYou can upload 2 X-rays that are front view and side view of chest of the same individual.
-        Note: The 2nd X-ray is optional."""
+                \nYou can upload 2 X-rays that are front view and side view of chest of the same individual. Note: The 2nd X-ray is optional."""
         
         text_area = st.empty()
         text=text_area.text_area("", paragraph, height=230)
