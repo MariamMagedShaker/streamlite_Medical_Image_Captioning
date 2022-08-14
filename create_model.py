@@ -1,4 +1,4 @@
-import pickle
+import joblib
 import os
 import tensorflow as tf
 import tensorflow as tf
@@ -189,7 +189,7 @@ def create_model():
   """
   #hyperparameters
   input_size = (224,224)
-  tokenizer = pickle.load(open('tokenizer.pkl', "rb"))
+  tokenizer = joblib.load('tokenizer.pkl')
   max_pad = 29
   batch_size = 100
   vocab_size = len(tokenizer.word_index)
