@@ -6,7 +6,24 @@ from PIL import Image
 import create_model as cm
 
 
-st.title("Chest X-ray Report Generator")
+
+st.session_state["warned_about_save_answers"] = True
+
+
+st.set_page_config(layout="wide", page_title="Chest X-ray Report Generator", page_icon="")
+
+
+
+hide_streamlit_style = """
+<style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+</style>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+
+st.sidebar.[]
+# st.title("Chest X-ray Report Generator")
 
 st.markdown("\nThis app will generate impression part of an X-ray report.\nYou can upload 2 X-rays that are front view and side view of chest of the same individual.")
 
