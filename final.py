@@ -42,7 +42,7 @@ st.header("X-ray 1")
 image_1 = col1.file_uploader("",type=['png','jpg','jpeg'])
 image_2 = None
 if image_1:
-    st.header("X-ray 2 (optional)")
+    #st.header("X-ray 2 (optional)")
     image_2 = col2.file_uploader("",type=['png','jpg','jpeg'])
 
 col1,col2 = st.columns(2)
