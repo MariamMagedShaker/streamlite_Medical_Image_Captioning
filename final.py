@@ -68,8 +68,7 @@ def predict(image_1,image_2,model_tokenizer,predict_button = None):
             st.image([image_1,image_2],width=300)
             caption = cm.function1([image_1],[image_2],model_tokenizer)
             if caption:
-                text_area = st.empty()
-                text = text_area.text_area(st.markdown(" ### **Impression:**"), caption[0])
+                text = st.text_area(st.markdown(" ### **Impression:**"), caption[0])
 
             impression = st.empty()
             impression.write(text)
