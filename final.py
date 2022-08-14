@@ -35,7 +35,7 @@ with st.sidebar:
     choices=['uploaded_files','sample_data']
     choice=st.selectbox("Select Activity to Predict on: ",choices)
 
-
+test_data=None
 if choice =="uploaded_files":
     col1,col2 = st.columns(2)
     col1.subheader("X-ray 1")
