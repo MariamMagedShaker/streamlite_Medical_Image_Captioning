@@ -32,7 +32,7 @@ with st.sidebar:
         
         text_area = st.empty()
         text=text_area.text_area("", paragraph, height=230)
-    choices=['uploaded_files','sample_data']
+    choices=['sample_data','uploaded_files']
     choice=st.selectbox("Select Activity to Predict on: ",choices)
 
 
