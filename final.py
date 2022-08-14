@@ -53,13 +53,7 @@ elif choice =="sample_data":
     test_data=True
 
 def predict(image_1,image_2,model_tokenizer,predict_button = None):
-    st.empty()
-    col_1,col_2,col_3=st.columns(3)
-    
-    col_1.empty()
-    col_2.empty()
-    col_3.empty()
-    
+    placeholder=st.empty()
     caption=None
     start = time.process_time()
     if predict_button:
@@ -72,6 +66,9 @@ def predict(image_1,image_2,model_tokenizer,predict_button = None):
             else:
                 image_2 = Image.open(image_2).convert("RGB") #converting to 3 channels
                 image_2 = np.array(image_2)/255
+            
+            
+            col_1,col_2,col_3= placeholder.columns(3)
 
             col_1.image(image_1)
             col_2.image(image_2)
@@ -85,12 +82,12 @@ def predict(image_1,image_2,model_tokenizer,predict_button = None):
 
             time_taken = "Time Taken for prediction: %i seconds"%(time.process_time()-start)
             
-            st.subheader(time_taken)
+            placeholder.subheader(time_taken)
 
             del image_1,image_2
     
         else:
-            st.markdown("## Upload an Image")
+            placeholder.markdown("## Upload an Image")
 
 def predict_sample(model_tokenizer,submit=None,folder = './test_images'):
 
