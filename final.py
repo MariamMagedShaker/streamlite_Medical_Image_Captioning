@@ -23,7 +23,9 @@ footer {visibility: hidden;}
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
 with st.sidebar:
-    st.markdown("\nThis app will generate impression part of an X-ray report.\nYou can upload 2 X-rays that are front view and side view of chest of the same individual.")
+    paragraph="""\nThis app will generate impression part of an X-ray report.
+                \nYou can upload 2 X-rays that are front view and side view of chest of the same individual."""
+    st.write(st.text_area(st.markdown(" ### **Impression:**"), paragraph))
 
 st.title("Chest X-ray Report Generator")
 
@@ -66,11 +68,11 @@ def predict(image_1,image_2,model_tokenizer,predict_button = predict_button):
             caption = cm.function1([image_1],[image_2],model_tokenizer)
             if caption:
                 text_area = st.empty()
-                text = text_area.text_area("Text to analyze", caption[0])
+                text = text_area.text_area(st.markdown(" ### **Impression:**"), caption[0])
 
 
             
-            st.markdown(" ### **Impression:**")
+            
             impression = st.empty()
             impression.write(text)
             time_taken = "Time Taken for prediction: %i seconds"%(time.process_time()-start)
