@@ -30,7 +30,6 @@ with st.sidebar:
                 \nYou can upload 2 X-rays that are front view and side view of chest of the same individual."""
         text_area = st.empty()
         text=text_area.text_area("", paragraph)
-        st.write(text)
 
 
 
