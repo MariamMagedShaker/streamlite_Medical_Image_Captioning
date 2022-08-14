@@ -86,7 +86,8 @@ def predict(image_1,image_2,model_tokenizer,predict_button = None):
         else:
             st.markdown("## Upload an Image")
 
-def predict_sample(model_tokenizer,folder = './test_images',submit=None):
+def predict_sample(model_tokenizer,submit=None,folder = './test_images'):
+
     no_files = len(os.listdir(folder))
     file = np.random.randint(1,no_files)
     file_path = os.path.join(folder,str(file))
