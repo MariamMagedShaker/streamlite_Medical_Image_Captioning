@@ -76,8 +76,8 @@ def predict(image_1,image_2,model_tokenizer,predict_button = None):
             caption = cm.function1([image_1],[image_2],model_tokenizer)
             if caption:
                 with col_3:
-                    text_area=col_3.empty()
-                    text = text_area.text_area("__","\n\n\nGenerated Report:\n\n"+ caption[0],height=300)
+                    #text_area=col_3.empty()
+                    text = col_3.text_area("__","\n\n\nGenerated Report:\n\n"+ caption[0],height=300)
 
 
             time_taken = "Time Taken for prediction: %i seconds"%(time.process_time()-start)
