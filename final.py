@@ -72,10 +72,10 @@ def predict(image_1,image_2,model_tokenizer,predict_button = None):
                 text_area=st.empty()
                 text = text_area.text_area("","Generated Rebort: "+ caption[0])
 
-            impression = st.empty()
-            impression.write(text)
             time_taken = "Time Taken for prediction: %i seconds"%(time.process_time()-start)
-            st.write(time_taken)
+            text_area=st.empty()
+            text = text_area.text_area("\n",time_taken)
+
             del image_1,image_2
         else:
             st.markdown("## Upload an Image")
