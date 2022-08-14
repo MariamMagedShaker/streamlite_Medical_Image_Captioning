@@ -86,7 +86,7 @@ def predict(image_1,image_2,model_tokenizer,predict_button = None):
         else:
             st.markdown("## Upload an Image")
 
-def predict_sample(model_tokenizer,folder = './test_images'):
+def predict_sample(model_tokenizer,folder = './test_images',submit=None):
     no_files = len(os.listdir(folder))
     file = np.random.randint(1,no_files)
     file_path = os.path.join(folder,str(file))
@@ -97,7 +97,7 @@ def predict_sample(model_tokenizer,folder = './test_images'):
     else:
         image_1 = os.path.join(file_path,os.listdir(file_path)[0])
         image_2 = image_1
-    predict(image_1,image_2,model_tokenizer,True)
+    predict(image_1,image_2,model_tokenizer,predict_button=submit)
 
 
 
@@ -107,7 +107,13 @@ model_tokenizer = create_model()
 
 if test_data:
     st.subheader("Generating Report On Test Data")
-    predict_sample(model_tokenizer)
+    button=True
+    predict_sample(model_tokenizer,button)
+    button=False
+    button=st.button('Resample Again')
+
+    while button:
+        predict_sample(model_tokenizer,button)
 else:
     st.subheader("Generating Report On Uploaded X-Rays")
     predict(image_1,image_2,model_tokenizer,predict_button=predict_button)
