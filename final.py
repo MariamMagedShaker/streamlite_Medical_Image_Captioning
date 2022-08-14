@@ -70,7 +70,7 @@ def predict(image_1,image_2,model_tokenizer,predict_button = None):
             with col_1:
                 c_imag1,c_imag2=st.columns(2)
                 c_imag1.image(image_1,use_column_width=True)
-                c_imag2.image(image_2,use_column_width=True))
+                c_imag2.image(image_2,use_column_width=True)
             #col_1.image([image_1,image_2],width=250)
             caption = cm.function1([image_1],[image_2],model_tokenizer)
             if caption:
