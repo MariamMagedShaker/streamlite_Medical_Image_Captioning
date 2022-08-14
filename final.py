@@ -67,7 +67,7 @@ def predict(image_1,image_2,model_tokenizer,predict_button = None):
             else:
                 image_2 = Image.open(image_2).convert("RGB") #converting to 3 channels
                 image_2 = np.array(image_2)/255
-            col_1.image([image_1,image_2],width=250,height=250)
+            col_1.image([image_1,image_2],use_column_width=True)
             caption = cm.function1([image_1],[image_2],model_tokenizer)
             if caption:
                 col2.text_area("","Generated Report:\n"+ caption[0])
