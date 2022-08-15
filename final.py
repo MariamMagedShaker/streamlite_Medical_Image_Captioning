@@ -107,8 +107,10 @@ def predict_sample(model_tokenizer,submit=None,folder = './test_images'):
 
 
 model_tokenizer = create_model()
-st.subheader("Chest X-ray Report Generator")
+
 if test_data:
+    
+    st.subheader("Chest X-ray Report Generator")
 
     # st.subheader("Generating Report On Test Data")
     button=True
@@ -119,6 +121,7 @@ if test_data:
     button=colu_2.button('\n\nResample Again\t\t\t\t\t\n')
         
 else:
+    st.subheader("Chest X-ray Report Generator")
     #st.subheader("Generating Report On Uploaded X-Rays")
     predict(image_1,image_2,model_tokenizer,predict_button=predict_button)
 
