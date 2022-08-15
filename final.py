@@ -26,11 +26,11 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 with st.sidebar:
     
     with st.container():
-        paragraph="""\nThis app will generate impression part of an X-ray report.
+        paragraph="""App Information:\n\nThis app will generate impression part of an X-ray report.
                 \nYou can upload 2 X-rays that are front view and side view of chest of the same individual.\nNote: The 2nd X-ray is optional."""
         
         text_area = st.empty()
-        text=text_area.text_area("", paragraph, height=230)
+        text=text_area.text_area("", paragraph, height=250)
     choices=['sample_data','uploaded_files']
     choice=st.selectbox("Select Activity to Predict on: ",choices)
 
