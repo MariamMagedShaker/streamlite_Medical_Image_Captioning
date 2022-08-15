@@ -24,7 +24,7 @@ footer {visibility: hidden;}
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
 with st.sidebar:
-    #st.title("Chest X-ray Report Generator")
+    #st.title("Report Generator")
     
     with st.container():
         paragraph="""\nThis app will generate impression part of an X-ray report.
@@ -36,8 +36,10 @@ with st.sidebar:
     choice=st.selectbox("Select Activity to Predict on: ",choices)
 
 
+st.subheader("Chest X-ray Report Generator")
 test_data=None
 if choice =="uploaded_files":
+    
     col1,col2 = st.columns(2)
     col1.subheader("X-ray 1")
 
@@ -110,7 +112,7 @@ model_tokenizer = create_model()
 
 if test_data:
     
-    st.subheader("Chest X-ray Report Generator")
+    # st.subheader("Chest X-ray Report Generator")
 
     # st.subheader("Generating Report On Test Data")
     button=True
@@ -121,8 +123,7 @@ if test_data:
     button=colu_2.button('\n\nResample Again\t\t\t\t\t\n')
         
 else:
-    st.subheader("Chest X-ray Report Generator")
-    #st.subheader("Generating Report On Uploaded X-Rays")
+    
     predict(image_1,image_2,model_tokenizer,predict_button=predict_button)
 
 
