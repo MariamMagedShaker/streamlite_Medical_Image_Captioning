@@ -109,6 +109,7 @@ def predict_sample(model_tokenizer,submit=None,folder = './test_images'):
 model_tokenizer = create_model()
 
 if test_data:
+    col=st.columns(1)
     #st.subheader("Generating Report On Test Data")
     button=True
     predict_sample(model_tokenizer,button)
