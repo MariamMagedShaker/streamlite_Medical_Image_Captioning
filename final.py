@@ -24,7 +24,7 @@ footer {visibility: hidden;}
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
 with st.sidebar:
-    st.title("Chest X-ray Report Generator")
+    #st.title("Chest X-ray Report Generator")
     
     with st.container():
         paragraph="""\nThis app will generate impression part of an X-ray report.
@@ -107,10 +107,10 @@ def predict_sample(model_tokenizer,submit=None,folder = './test_images'):
 
 
 model_tokenizer = create_model()
-
+st.subheader("Chest X-ray Report Generator")
 if test_data:
-    col=st.columns(1)
-    #st.subheader("Generating Report On Test Data")
+
+    # st.subheader("Generating Report On Test Data")
     button=True
     predict_sample(model_tokenizer,button)
 
