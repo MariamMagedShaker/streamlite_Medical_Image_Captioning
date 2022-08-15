@@ -25,8 +25,9 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 with st.sidebar:
     #st.title("Report Generator")
-    text_area_1=st.empty
-    text_1=text_area_1.text_area("About")
+    with st.container():
+        text_area_1=st.empty
+        text_1=text_area_1.text_area("About")
     
     with st.container():
         paragraph="""\nThis app will generate impression part of an X-ray report.
