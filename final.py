@@ -15,13 +15,13 @@ def create_model():
     model_tokenizer = cm.create_model()
     return model_tokenizer
 
-# # hide_streamlit_style = """
-# # <style>
-# # #MainMenu {visibility: hidden;}
-# # footer {visibility: hidden;}
-# # </style>
-# # """
-# st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+hide_streamlit_style = """
+<style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+</style>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
 with st.sidebar:
     st.title("Chest X-ray Report Generator")
@@ -109,7 +109,7 @@ def predict_sample(model_tokenizer,submit=None,folder = './test_images'):
 model_tokenizer = create_model()
 
 if test_data:
-    st.subheader("Generating Report On Test Data")
+    #st.subheader("Generating Report On Test Data")
     button=True
     predict_sample(model_tokenizer,button)
 
@@ -118,7 +118,7 @@ if test_data:
     button=colu_2.button('\n\nResample Again\t\t\t\t\t\n')
         
 else:
-    st.subheader("Generating Report On Uploaded X-Rays")
+    #st.subheader("Generating Report On Uploaded X-Rays")
     predict(image_1,image_2,model_tokenizer,predict_button=predict_button)
 
 
