@@ -15,13 +15,13 @@ def create_model():
     model_tokenizer = cm.create_model()
     return model_tokenizer
 
-hide_streamlit_style = """
-<style>
-#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-</style>
-"""
-st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+# hide_streamlit_style = """
+# <style>
+# #MainMenu {visibility: hidden;}
+# footer {visibility: hidden;}
+# </style>
+# """
+# st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
 with st.sidebar:
     
